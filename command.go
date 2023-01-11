@@ -1397,6 +1397,9 @@ func (c *Command) UseLine() string {
 	if c.HasAvailableFlags() && !strings.Contains(useline, "[flags]") {
 		useline += " [flags]"
 	}
+	if 0 != len(c.ValidArgs) {
+		useline += fmt.Sprintf(" %v", c.ValidArgs)
+	}
 	return useline
 }
 
